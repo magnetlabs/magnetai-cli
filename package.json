@@ -1,0 +1,32 @@
+{
+  "name": "@magnetcrypto/magnet-cli",
+  "version": "1.0.2",
+  "description": "The Magnet command-line interface (Magnet CLI) is a set of commands used to access Magnet Network resources",
+  "repository": "https://github.com/magnetcrypto/magnet-cli.git",
+  "author": "Zikun Fan <zikunvan@gmail.com>",
+  "license": "GPL-3.0",
+  "main": "./src/index.js",
+  "bin": {
+    "magnet-cli": "./src/index.js"
+  },
+  "keywords": [
+    "magnet",
+    "polkadot"
+  ],
+  "dependencies": {
+    "@polkadot/api": "10.9.1",
+    "chalk": "^4.1.2",
+    "commander": "^7.1.0",
+    "figlet": "^1.5.0",
+    "inquirer": "^8.0.0",
+    "bluebird": "^3.7.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "debug": "nodemon --watch 'src/**/*.js' --exec 'node' src/index.js",
+    "local": "npm i --only=prod -g && magnet-cli"
+  }
+}
