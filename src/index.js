@@ -16,12 +16,12 @@ program
 
 program
   .command('login [SEEDS]')
-  .description('Login with Magnet Account secret seeds(12 words)')
+  .description('Login with MagnetAI account mnemonic')
   .action((seeds) => withHelper(seeds, () => program.help(), () => login(seeds)))
 
 program
-  .command('prompt [MESSAGE]')
-  .description('Prompt message to Magnet network for answer')
+  .command('ask [PROMPT]')
+  .description('Request MagnetAI LLM inference service')
   .action((msg) => withHelper(msg, () => program.help(), () => prompt(msg)))
 
 program
@@ -29,6 +29,6 @@ program
   .description('Check status of your message by transaction nonce')
   .action((nonce) => withHelper(nonce, () => program.help(), () => status(nonce)))
 
-program.addHelpText('before', chalk.yellow(figlet.textSync('magnet-cli', {horizontalLayout: 'full'})));
+program.addHelpText('before', chalk.yellow(figlet.textSync('magnetai', {horizontalLayout: 'full'})));
 
 program.parse(process.argv)

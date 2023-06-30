@@ -21,23 +21,23 @@ module.exports = {
       const nonce = await sendTx(tx, seeds);
       if (nonce !== -1) {
         //console.log(`Prompt ${msg} success`)
-        console.log(`⛓  Success, you can wait or quit and use 'npx magnet-cli status ${nonce}' to check answer...`)
+        console.log(`🎉  Transaction with nonce(${nonce}) sent successfully, waiting for the reply...`)
         do {
           await bluebird.delay(3000);
           const ans = parseObj(await chain.query.ai.replyRecords(nonce));
           if (ans !== '0x') {
-            console.log(hexToString(ans));
+            console.log('\x1b[33m', hexToString(ans));
             break;
           }
         } while (true);
       } else {
-        console.error('Prompt failed with \'Send transaction failed\'')
+        console.error('Ask transaction sent failed.')
       }
 
       // 4. Disconnect with chain
       chain.disconnect();
     } catch (e) {
-      console.error(`Publish failed with: ${e}`);
+      console.error(`Transaction sent failed with: ${e}.`);
     }
   }
 }

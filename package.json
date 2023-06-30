@@ -1,17 +1,16 @@
 {
-  "name": "@magnetcrypto/magnet-cli",
-  "version": "1.0.2",
-  "description": "The Magnet command-line interface (Magnet CLI) is a set of commands used to access Magnet Network resources",
-  "repository": "https://github.com/magnetcrypto/magnet-cli.git",
-  "author": "Zikun Fan <zikunvan@gmail.com>",
+  "name": "magnetai",
+  "version": "0.0.4",
+  "description": "The MagnetAI command-line interface (Magnet CLI) is a set of commands used to access MagnetAI Network resources",
+  "repository": "https://github.com/magnetlabs/magnetai-cli.git",
+  "author": "Luke Fan <zikunfan@outlook.com>",
   "license": "GPL-3.0",
   "main": "./src/index.js",
   "bin": {
-    "magnet-cli": "./src/index.js"
+    "magnetai": "./src/index.js"
   },
   "keywords": [
-    "magnet",
-    "polkadot"
+    "magnetai"
   ],
   "dependencies": {
     "@polkadot/api": "10.9.1",
@@ -27,6 +26,6 @@
   },
   "scripts": {
     "debug": "nodemon --watch 'src/**/*.js' --exec 'node' src/index.js",
-    "local": "npm i --only=prod -g && magnet-cli"
+    "local": "npm i --only=prod -g && magnetai"
   }
 }

@@ -13,13 +13,13 @@ The Magnet command-line interface (Magnet CLI) is a set of commands used to acce
 **Login** with Magnet Account secret **seeds**(*12/24 random words*), it will be used to sign your publishing transaction.
 
 ```shell
-npx magnet-cli login "vanish desert itch writer pretty unite wax wistful painful pine key bore"
+npx magnetai login "vanish desert itch writer pretty unite wax wistful painful pine key bore"
 ```
 
 ### 2. Prompt
 
 ```shell
-npx magnet-cli prompt 'Hello, what's your name'
+npx magnetai prompt 'Hello, what's your name'
 ```
 
 ### 3. Status
@@ -27,5 +27,5 @@ npx magnet-cli prompt 'Hello, what's your name'
 Status will help you to monitor your prompt on-chain
 
 ```shell
-npx magnet-cli status <nonce>
+npx magnetai status <nonce>
 ```

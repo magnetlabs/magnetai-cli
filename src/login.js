@@ -7,7 +7,7 @@ module.exports = {
       // 1. Judge legality of the seeds
       const seedsVec = seeds.split(' ');
       if (seedsVec.length !== 12 && seedsVec.length !== 24) {
-        console.error('Seeds illegal, check it again');
+        console.error('Seeds illegal, check it again.');
         return;
       }
 
@@ -17,12 +17,12 @@ module.exports = {
       // 3. Read it and compare with input seeds
       const seedsLocal = fs.readFileSync(seedsPath, 'utf8');
       if (seedsLocal === seeds) {
-        console.log('Login success!');
+        console.log('Login success.');
       } else {
-        console.error('Save seeds error, do it again.');
+        console.error('Login failed, please check with the mnemonic.');
       }
     } catch (e) {
-      console.error(`Login failed with error: ${e}`);
+      console.error(`Login failed with error: ${e}.`);
     }
   }
 }

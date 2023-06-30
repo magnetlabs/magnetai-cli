@@ -35,21 +35,21 @@ function withHelper(arg, err, handler) {
  * @param {string} seeds tx already been sent
  */
 async function sendTx(tx, seeds) {
-  console.log('⛓  Send tx to chain...');
+  console.log('⛓  Send transaction to MagnetAI chain...');
   const krp = loadKeyringPair(seeds);
 
   return new Promise((resolve, reject) => {
     tx.signAndSend(krp, ({events = [], status}) => {
-      //console.log(
-      //  `  ↪ 💸  Transaction status: ${status.type}, nonce: ${tx.nonce}`
-      //);
+      console.log(
+       `  ↪   Transaction status: ${status.type}, nonce: ${tx.nonce}.`
+      );
       if (
         status.isInvalid ||
         status.isDropped ||
         status.isUsurped ||
         status.isRetracted
       ) {
-        reject(new Error('Invalid transaction'));
+        reject(new Error('Invalid transaction.'));
       } else {
         // Pass it
       }
@@ -59,15 +59,15 @@ async function sendTx(tx, seeds) {
         events.forEach(({event: {method, section, data}}) => {
           if (section === 'ai' && method === 'Ask') {
             nonce = data[1];
-            //console.log(`  ↪ 👉  Use ${data[1]} as nonce to check answer`)
+            // console.log(`  ↪ 👉  Use ${data[1]} as nonce to query the reply`)
           } 
           if (section === 'system' && method === 'ExtrinsicFailed') {
             // Error with no detail, just return error
-            //console.error(`  ↪ ❌  Send transaction(${tx.type}) failed.`);
-            //resolve(false);
+            console.error(`  ↪   Send transaction(${tx.type}) failed.`);
+            // resolve(false);
             res = false;
           } else if (method === 'ExtrinsicSuccess') {
-            //console.log(`  ↪ ✅  Send transaction(${tx.type}) success.`);
+            // console.log(`  ↪   Transaction(${tx.type}) with nonce(${nonce}) sent successfully.`);
             //resolve(true);
             res = true;
           }

@@ -18,7 +18,7 @@ module.exports = {
       // 3. Disconnect with chain
       chain.disconnect();
     } catch (e) {
-      console.error(`Query status failed with ${e}`);
+      console.error(`Query status failed with ${e}.`);
     }
   }
 }
