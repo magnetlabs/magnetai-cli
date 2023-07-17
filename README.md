@@ -16,16 +16,24 @@ The Magnet command-line interface (Magnet CLI) is a set of commands used to acce
 npx magnetai login "vanish desert itch writer pretty unite wax wistful painful pine key bore"
 ```
 
-### 2. Prompt
+### 2. Order 
 
 ```shell
-npx magnetai prompt 'Hello, what's your name'
+npx magnetai order <module_name>
 ```
 
-### 3. Status
+### 3. Api 
 
-Status will help you to monitor your prompt on-chain
+Api will help you to get your request API
 
 ```shell
-npx magnetai status <nonce>
+npx magnetai api <nonce>
+```
+
+### 4. Metrics 
+
+Metrics will help you to get node metrics
+
+```shell
+npx magnetai metrics <nonce>
 ```
