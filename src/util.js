@@ -57,7 +57,7 @@ async function sendTx(tx, seeds) {
         let nonce = -1;
         let res = true;
         events.forEach(({event: {method, section, data}}) => {
-          if (section === 'ai' && method === 'Ask') {
+          if (section === 'market' && method === 'Order') {
             nonce = data[1];
             // console.log(`  ↪ 👉  Use ${data[1]} as nonce to query the reply`)
           } 

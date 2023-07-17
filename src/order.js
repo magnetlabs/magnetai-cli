@@ -5,7 +5,7 @@ const { chainAddr, seedsPath } = require('./consts');
 const { hexToString, sendTx, parseObj } = require('./util');
 
 module.exports = {
-  default: async (msg) => {
+  default: async (moduleName) => {
     try {
       // 1. Try connect to Magnet Network
       const chain = new ApiPromise({
@@ -17,21 +17,21 @@ module.exports = {
       const seeds = fs.readFileSync(seedsPath, 'utf8');
 
       // 3. Send place storage order tx
-      const tx = chain.tx.ai.ask(msg);
+      console.log(`Ordering module name:${moduleName}`);
+      const tx = chain.tx.market.newOrder(moduleName);
       const nonce = await sendTx(tx, seeds);
       if (nonce !== -1) {
-        //console.log(`Prompt ${msg} success`)
         console.log(`🎉  Transaction with nonce(${nonce}) sent successfully, waiting for the reply...`)
         do {
           await bluebird.delay(3000);
-          const ans = parseObj(await chain.query.ai.replyRecords(nonce));
+          const ans = parseObj(await chain.query.market.apiRecords(nonce));
           if (ans !== '0x') {
             console.log('\x1b[33m', hexToString(ans));
             break;
           }
         } while (true);
       } else {
-        console.error('Ask transaction sent failed.')
+        console.error('Order transaction sent failed.')
       }
 
       // 4. Disconnect with chain

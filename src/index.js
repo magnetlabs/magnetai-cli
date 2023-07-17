@@ -4,8 +4,9 @@ const chalk = require('chalk');
 const figlet = require('figlet');
 const program = require('commander');
 const login = require('./login').default;
-const prompt = require('./prompt').default;
-const status = require('./status').default;
+const order = require('./order').default;
+const api = require('./api').default;
+const metrics = require('./metrics').default;
 const { withHelper } = require('./util');
 
 program
@@ -20,14 +21,19 @@ program
   .action((seeds) => withHelper(seeds, () => program.help(), () => login(seeds)))
 
 program
-  .command('ask [PROMPT]')
-  .description('Request MagnetAI LLM inference service')
-  .action((msg) => withHelper(msg, () => program.help(), () => prompt(msg)))
+  .command('order [MODULE_NAME]')
+  .description('Order LLM module on MagnetAI')
+  .action((msg) => withHelper(msg, () => program.help(), () => order(msg)))
 
 program
-  .command('status [NONCE]')
-  .description('Check status of your message by transaction nonce')
-  .action((nonce) => withHelper(nonce, () => program.help(), () => status(nonce)))
+  .command('api [NONCE]')
+  .description('Check module API by transaction nonce')
+  .action((nonce) => withHelper(nonce, () => program.help(), () => api(nonce)))
+
+program
+  .command('metrics [NONCE]')
+  .description('Check node metrics by transaction nonce')
+  .action((nonce) => withHelper(nonce, () => program.help(), () => metrics(nonce)))
 
 program.addHelpText('before', chalk.yellow(figlet.textSync('magnetai', {horizontalLayout: 'full'})));
 

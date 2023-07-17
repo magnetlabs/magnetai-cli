@@ -12,13 +12,13 @@ module.exports = {
       await chain.isReadyOrError;
 
       // 2. Query on-chain file data
-      const info = parseObj(await chain.query.ai.replyRecords(nonce));
+      const info = parseObj(await chain.query.market.metricsRecords(nonce));
       console.log(hexToString(info));
 
       // 3. Disconnect with chain
       chain.disconnect();
     } catch (e) {
-      console.error(`Query status failed with ${e}.`);
+      console.error(`Query metrics failed with ${e}.`);
     }
   }
 }
