@@ -26,7 +26,7 @@ module.exports = {
           await bluebird.delay(3000);
           const ans = parseObj(await chain.query.market.apiRecords(nonce));
           if (ans !== '0x') {
-            console.log('\x1b[33m', hexToString(ans));
+            console.log('\x1b[33m', hexToString(ans), '\033[0m');
             break;
           }
         } while (true);
