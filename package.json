@@ -1,6 +1,6 @@
 {
   "name": "magnetai",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "The MagnetAI command-line interface (Magnet CLI) is a set of commands used to access MagnetAI Network resources",
   "repository": "https://github.com/magnetlabs/magnetai-cli.git",
   "author": "Luke Fan <zikunfan@outlook.com>",
