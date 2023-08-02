@@ -17,7 +17,7 @@ npx magnetai login <seeds>
 ```
 
 ### 2. Order 
-> For example **facebook_opt-350m**.
+> For example **"facebook_opt-350m"**.
 
 ```shell
 npx magnetai order <module_name>
