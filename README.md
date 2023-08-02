@@ -10,13 +10,14 @@ The Magnet command-line interface (Magnet CLI) is a set of commands used to acce
 
 > Secret seeds will be stored locally and won't be leaked by cli-itself.
 
-**Login** with Magnet Account secret **seeds**(*12/24 random words*), it will be used to sign your publishing transaction.
+**Login** with Magnet Account secret **seeds**(*12/24 random words*) for example:**vanish desert itch writer pretty unite wax wistful painful pine key bore**, it will be used to sign your publishing transaction.
 
 ```shell
-npx magnetai login "vanish desert itch writer pretty unite wax wistful painful pine key bore"
+npx magnetai login <seeds>
 ```
 
 ### 2. Order 
+> For example **facebook_opt-350m**.
 
 ```shell
 npx magnetai order <module_name>
